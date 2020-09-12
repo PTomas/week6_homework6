@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Favorite Movies</title>
+  <style type="text/css">
+    button,
+    div,
+    form,
+    input {
+      margin: 10px;
+    }
+
+    .title{
+      text-align: center;
+      background-color: darkblue;
+      color: white;
+      padding: 30px;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+    <h1 class="title">Search Weather</h1>
+
+    <hr>
+    <!-- Rendered buttons will get dumped here  -->
+    
+
+    <form id="movie-form">
+      <label>Search Weather</label>
+      <input type="text" id="loc-input">
+
+      <!-- Button triggers new movie to be added -->
+    </div class="row">
+      <div class="col-3">
+        <input id="search-weather" type="submit" value="Search"><br>
+        <label id="buttons-view"></label>
+      </div>
+    </div>
+    </form>
+
+    <!-- Movies will get dumped Here -->
+    <div id="Weather-view"></div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript">
+      // Initial array of movies
+      var locations = [""];
+
+      // displayMovieInfo function re-renders the HTML to display the appropriate content
+      function displayMovieInfo() {
+
+        var movie = $(this).attr("data-name");
+        var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=Bujumbura,Burundi&appid=bc2c9ba3a693557f6554d33f9cb595db";
+
+        // Creates AJAX call for the specific movie button being clicked
+        $.ajax({
+          url: queryURL,
+          method: "GET"
+        }).then(function(response) {
+
+          // Creates a div to hold the movie
+          // Retrieves the Rating Data
+          // Creates an element to have the rating displayed
+          // Displays the rating
+          // Retrieves the release year
+          // Creates an element to hold the release year
+          // Displays the release year
+          // Retrieves the plot
+          // Creates an element to hold the plot
+          // Appends the plot
+          // Creates an element to hold the image
+          // Appends the image
+          // Puts the entire Movie above the previous movies.
+          console.log(response)
+        });
+
+      }
+
+      // Function for displaying movie data
+      function renderButtons() {
+        localStorage.setItem("locations", locations)
+        // Deletes the movies prior to adding new movies
+        // (this is necessary otherwise you will have repeat buttons)
+        $("#buttons-view").empty();
+        // Loops through the array of movies
+        for (var i = 0; i < locations.length; i++) {
+
+          // Then dynamicaly generates buttons for each movie in the array
+          // This code $("<button>") is all jQuery needs to create the beginning and end tag. (<button></button>)
+          var a = $("<div>");
+          // Adds a class of movie to our button
+          a.addClass("location");
+          // Added a data-attribute
+          a.attr("data-name", locations[i]);
+          // Provided the initial button text
+          a.text(locations[i]);
+          // Added the button to the buttons-view div
+          $("#buttons-view").append(a);
+
+        }
+      }
+
+      // This function handles events where the add movie button is clicked
+      $("#search-weather").on("click", function(event) {
+        event.preventDefault();
+        // This line of code will grab the input from the textbox
+        console.log("button working")
+        var loc = $("#loc-input").val().trim();
+
+        // The movie from the textbox is then added to our array
+        locations.push(loc);
+
+        // Calling renderButtons which handles the processing of our movie array
+        renderButtons();
+
+        //var loc = $(this).attr("data-name");
+        var queryURL = "https://api.openweathermap.org/data/2.5/forecast?q="+ loc +"&appid=bc2c9ba3a693557f6554d33f9cb595db";
+
+        // Creates AJAX call for the specific movie button being clicked
+        $.ajax({
+          url: queryURL,
+          method: "GET"
+        }).then(function(response) {
+
+          // Creates a div to hold the movie
+          // Retrieves the Rating Data
+          // Creates an element to have the rating displayed
+          // Displays the rating
+          // Retrieves the release year
+          // Creates an element to hold the release year
+          // Displays the release year
+          // Retrieves the plot
+          // Creates an element to hold the plot
+          // Appends the plot
+          // Creates an element to hold the image
+          // Appends the image
+          // Puts the entire Movie above the previous movies.
+          console.log(response);
+          
+          var weather = $("<div>")
+          weather.html(`<p>${response.list[0].weather},${response.coord.lon}</p>`)
+          $("#Weather-view").append(weather)
+
+        // Creates AJAX call for the specific movie button being clicked
+        });
+        
+
+
+      });
+
+      // Adding click event listeners to all elements with a class of "movie"
+      $(document).on("click", ".movie", displayMovieInfo);
+
+      // Calling the renderButtons function to display the initial buttons
+      renderButtons();
+    </script>
+  </div>
+</body>
+
+</html>
