@@ -1,0 +1,19 @@
+    button,
+    div,
+    form,
+    input {
+      margin: 10px;
+    }
+
+    .title{
+      text-align: center;
+      font-family: 'Bebas Neue', cursive;
+      color: darkblue;
+      padding: 30px;
+    }
+
+    hr{
+        height:10px;
+        background-color: darkblue;
+        margin: 0px;
+    }

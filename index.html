@@ -4,22 +4,6 @@
 <head>
   <meta charset="utf-8">
   <title>Favorite Movies</title>
-  <style type="text/css">
-    button,
-    div,
-    form,
-    input {
-      margin: 10px;
-    }
-
-    .title{
-      text-align: center;
-      background-color: darkblue;
-      color: white;
-      padding: 30px;
-      border-radius: 5px;
-    }
-  </style>
 </head>
 
 <body>
@@ -46,7 +30,8 @@
 
     <!-- Movies will get dumped Here -->
     <div id="Weather-view"></div>
-
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+    <link href="./style.css" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script type="text/javascript">
       // Initial array of movies
@@ -107,7 +92,7 @@
       }
 
       // This function handles events where the add movie button is clicked
-      $("#search-weather").on("click", function(event) {
+      ("#button-view").on("click", function(event) {
         event.preventDefault();
         // This line of code will grab the input from the textbox
         console.log("button working")
