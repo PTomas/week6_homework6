@@ -36,7 +36,7 @@
     <script type="text/javascript">
       // Initial array of movies
       var locations = [""];
-
+      var globalLoc;
       // displayMovieInfo function re-renders the HTML to display the appropriate content
       function displayMovieInfo() {
 
@@ -100,7 +100,7 @@
         console.log("button working")
         var loc = $("#loc-input").val().trim();
 
-        localStorage.setItem("gobalLoc", loc)
+        globalLoc = loc;
         // The movie from the textbox is then added to our array
         locations.push(loc);
 
@@ -147,7 +147,6 @@
 
       // Adding click event listeners to all elements with a class of "movie"
       $(document).on("click", ".location", displayMovieInfo);
-      const myLoc = localStorage.getItem('globalLoc');
       // Calling the renderButtons function to display the initial buttons
       renderButtons();
 
@@ -155,11 +154,9 @@
       function displayMovieInfo(){
         console.log("working")
 
-        var queryURL = "https://api.openweathermap.org/data/2.5/forecast?q="+ myLoc +"&appid=bc2c9ba3a693557f6554d33f9cb595db";
+        var queryURL = "https://api.openweathermap.org/data/2.5/forecast?q="+ globalLoc +"&appid=bc2c9ba3a693557f6554d33f9cb595db";
 
         // Creates AJAX call for the specific movie button being clicked
-        var load = $("<p>loading...</p>")
-        $("#view").append(load)
 
         $.ajax({
           url: queryURL,
@@ -179,11 +176,7 @@
           // Creates an element to hold the image
           // Appends the image
           // Puts the entire Movie above the previous movies.
-          if (!response.list.length) { 
-            // city not found
-            console.log("error")
-            return
-          }
+          
 
           console.log(response);
           
@@ -191,29 +184,29 @@
             weakly.html(`<p>${response.list[0].weakly[0].description}</p>`)
           $("#Weather-view").append(weakly)
 
-          var weakly = $("<div>")
-            weakly.html(`<p>${response.list[0].weakly[0].description}</p>`)
-          $("#Weather-view").append(weakly)
+          var weakly1 = $("<div>")
+            weakly1.html(`<p>${response.list[0].weakly[1].description}</p>`)
+          $("#Weather-view").append(weakly1)
 
-          var weakly = $("<div>")
-            weakly.html(`<p>${response.list[0].weakly[2].description}</p>`)
-          $("#Weather-view").append(weakly)
+          var weakly2 = $("<div>")
+            weakly2.html(`<p>${response.list[0].weakly2[2].description}</p>`)
+          $("#Weather-view").append(weakly2)
 
-          var weakly = $("<div>")
-            weakly.html(`<p>${response.list[0].weakly[3].description}</p>`)
-          $("#Weather-view").append(weakly)
+          var weakly3 = $("<div>")
+            weakly3.html(`<p>${response.list[0].weakly3[3].description}</p>`)
+          $("#Weather-view").append(weakly3)
 
-          var weakly = $("<div>")
-            weakly.html(`<p>${response.list[0].weakly[4].description}</p>`)
-          $("#Weather-view").append(weakly)
+          var weakly4 = $("<div>")
+            weakly4.html(`<p>${response.list[0].weakly4[4].description}</p>`)
+          $("#Weather-view").append(weakly4)
 
-          var weakly = $("<div>")
-            weakly.html(`<p>${response.list[0].weakly[5].description}</p>`)
-          $("#Weather-view").append(weakly)
+          var weakly5 = $("<div>")
+            weakly5.html(`<p>${response.list[0].weakly5[5].description}</p>`)
+          $("#Weather-view").append(weakly5)
 
-          var weakly = $("<div>")
-            weakly.html(`<p>${response.list[0].weakly[6].description}</p>`)
-          $("#Weather-view").append(weakly)
+          var weakly6 = $("<div>")
+            weakly6.html(`<p>${response.list[0].weakly6[6].description}</p>`)
+          $("#Weather-view").append(weakly6)
 
           
         // Creates AJAX call for the specific movie button being clicked
