@@ -158,10 +158,9 @@
         var queryURL = "https://api.openweathermap.org/data/2.5/forecast?q="+ myLoc +"&appid=bc2c9ba3a693557f6554d33f9cb595db";
 
         // Creates AJAX call for the specific movie button being clicked
-        myLoc.length === 0 ?
         var load = $("<p>loading...</p>")
-        $("#loading-view").append(load):
-        
+        $("#view").append(load)
+
         $.ajax({
           url: queryURL,
           method: "GET"
@@ -180,7 +179,12 @@
           // Creates an element to hold the image
           // Appends the image
           // Puts the entire Movie above the previous movies.
-        
+          if (!response.list.length) { 
+            // city not found
+            console.log("error")
+            return
+          }
+
           console.log(response);
           
           var weakly = $("<div>")
