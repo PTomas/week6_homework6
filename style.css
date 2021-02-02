@@ -22,3 +22,9 @@
       display: flex;
       flex-direction: row;
     }
+
+    #Weather-view :: div{
+      border: blue;
+      box-sizing: 5px;
+      border-radius: 5px;
+    }

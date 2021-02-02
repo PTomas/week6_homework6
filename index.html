@@ -132,13 +132,12 @@
           console.log(response);
           
           var weather = $("<div>")
-          weather.html(`<p>${response.list[0].weather[0].description}</p>`)
+          weather.html(`<img src=http://openweathermap.org/img/w/${response.list[0].weather[0].icon}.png> <br> <p>${response.list[0].weather[0].description}</p> <br> <p>${response.list[0].main.temp}</p>`)
           $("#Weather-view").append(weather)
 
 
           //console.log(${response.list[0].weather[0].icon})
           var image = $("<div>")
-            image.html(`<img src=http://openweathermap.org/img/w/${response.list[0].weather[0].icon}.png/>`)
           $("#Weather-view").append(image)
         // Creates AJAX call for the specific movie button being clicked
         });
@@ -183,31 +182,31 @@
           console.log(response);
           
           var weakly = $("<div>")
-            weakly.html(`<p>${response.list[0].weather[0].description}</p>`)
+            weakly.html(`<img src=http://openweathermap.org/img/w/${response.list[0].weather[0].icon}.png> <br> <p>${response.list[0].weather[0].description}</p> <br> <p>${response.list[0].main.temp}</p>`)
           $("#Weather-view").append(weakly)
 
           var weakly1 = $("<div>")
-            weakly1.html(`<p>${response.list[1].weather[0].description}</p>`)
+            weakly1.html(`<img src=http://openweathermap.org/img/w/${response.list[1].weather[0].icon}.png> <br> <p>${response.list[1].weather[0].description}</p> <br> <p>${response.list[1].main.temp}</p>`)
           $("#Weather-view").append(weakly1)
 
           var weakly2 = $("<div>")
-            weakly2.html(`<p>${response.list[2].weather[0].description}</p>`)
+            weakly2.html(`<img src=http://openweathermap.org/img/w/${response.list[2].weather[0].icon}.png> <br> <p>${response.list[2].weather[0].description}</p> <br> <p>${response.list[2].main.temp}</p>`)
           $("#Weather-view").append(weakly2)
 
           var weakly3 = $("<div>")
-            weakly3.html(`<p>${response.list[3].weather[0].description}</p>`)
+            weakly3.html(`<img src=http://openweathermap.org/img/w/${response.list[3].weather[0].icon}.png> <br> <p>${response.list[3].weather[0].description}</p> <br> <p>${response.list[3].main.temp}</p>`)
           $("#Weather-view").append(weakly3)
 
           var weakly4 = $("<div>")
-            weakly4.html(`<p>${response.list[4].weather[0].description}</p>`)
+            weakly4.html(`<img src=http://openweathermap.org/img/w/${response.list[4].weather[0].icon}.png> <br> <p>${response.list[4].weather[0].description}</p> <br> <p>${response.list[4].main.temp}</p>`)
           $("#Weather-view").append(weakly4)
 
           var weakly5 = $("<div>")
-            weakly5.html(`<p>${response.list[5].weather[0].description}</p>`)
+            weakly5.html(`<img src=http://openweathermap.org/img/w/${response.list[5].weather[0].icon}.png> <br> <p>${response.list[5].weather[0].description}</p> <br> <p>${response.list[5].main.temp}</p>`)
           $("#Weather-view").append(weakly5)
 
           var weakly6 = $("<div>")
-            weakly6.html(`<p>${response.list[6].weather[0].description}</p>`)
+            weakly6.html(`<img src=http://openweathermap.org/img/w/${response.list[6].weather[0].icon}.png> <br> <p>${response.list[6].weather[0].description}</p> <br> <p>${response.list[6].main.temp}</p>`)
           $("#Weather-view").append(weakly6)
 
           
