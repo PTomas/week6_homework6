@@ -135,9 +135,11 @@
           weather.html(`<p>${response.list[0].weather[0].description}</p>`)
           $("#Weather-view").append(weather)
 
+
+          //console.log(${response.list[0].weather[0].icon})
           var image = $("<div>")
-            image.html(`<img src='${response.coord.lon}/>`)
-          $("#Image-view").append(image)
+            image.html(`<img src=http://openweathermap.org/img/w/${response.list[0].weather[0].icon}.png/>`)
+          $("#Weather-view").append(image)
         // Creates AJAX call for the specific movie button being clicked
         });
         
