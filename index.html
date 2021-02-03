@@ -135,6 +135,7 @@
           weather.html(`<img src=http://openweathermap.org/img/w/${response.list[0].weather[0].icon}.png> <br> <p>${response.list[0].weather[0].description}</p> <br> <p>${response.list[0].main.temp}</p>`)
           $("#Weather-view").append(weather)
 
+          //$("#Weather-view").css("background-color", "blue");
 
           //console.log(${response.list[0].weather[0].icon})
           var image = $("<div>")
@@ -208,7 +209,8 @@
           var weakly6 = $("<div>")
             weakly6.html(`<img src=http://openweathermap.org/img/w/${response.list[6].weather[0].icon}.png> <br> <p>${response.list[6].weather[0].description}</p> <br> <p>${response.list[6].main.temp}</p>`)
           $("#Weather-view").append(weakly6)
-
+          
+          //$("#Weather-view").css("background-color", "blue");
           
         // Creates AJAX call for the specific movie button being clicked
         });

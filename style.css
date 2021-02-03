@@ -23,8 +23,9 @@
       flex-direction: row;
     }
 
-    #Weather-view :: div{
+    #Weather-view div{
       border: blue;
       box-sizing: 5px;
       border-radius: 5px;
+      background-color: blue;
     }
